@@ -1,0 +1,13 @@
+@import "../../style/myColors";
+.header-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  h2 {
+    color: $primary-color;
+  }
+  span {
+    color: $text-color;
+  }
+}

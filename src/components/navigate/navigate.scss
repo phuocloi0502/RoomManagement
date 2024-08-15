@@ -1,0 +1,21 @@
+@import "./../../style/myColors";
+.navigate-wrap {
+  padding-top: 20px;
+  height: 100%;
+  width: 300px;
+  .logo-area {
+    text-align: center;
+    img {
+      width: 25%;
+      height: 25%;
+    }
+  }
+
+  .navigater {
+    padding: 20px 10px;
+    height: 75%;
+    .ant-menu {
+      height: 100%;
+    }
+  }
+}
