@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import logoWeb from "../../assets/logoweb.svg";
 import "./navigate.scss";
 import { FaHome, FaUser } from "react-icons/fa";
 import { CiLogout } from "react-icons/ci";
-import { Menu } from "antd";
+import { Drawer, Menu, message } from "antd";
+import { setOpenDrawer } from "../../redux/slide/myState";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 const items = [
   {
-    key: "room",
+    key: "",
     label: "Phòng",
     icon: <FaHome />,
   },
@@ -21,7 +24,7 @@ const items = [
     icon: <CiLogout />,
   },
 ];
-// const itemsMobile = [
+
 //   {
 //     key: "chat",
 //     icon: (
@@ -49,20 +52,66 @@ const items = [
 //   },
 // ];
 export const Navigate = (props) => {
-  const defaultSelectedKey = "room";
+  //init
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const openDrawer = useSelector((state) => state.MyState.openDrawer);
+  const defaultSelectedKey = "";
+  //handle
+  const onClick = (e) => {
+    if (e.key == "sign_out") {
+      message.info("Đã đăng xuất !");
+    } else {
+      navigate(e.key);
+    }
+  };
+  useEffect(() => {
+    onClick({ key: defaultSelectedKey });
+  }, []);
+  const handleClose = () => {
+    dispatch(setOpenDrawer(false));
+  };
+
   return (
     <div className="navigate-wrap">
       <div className="logo-area">
-        <img src={logoWeb} alt="" srcset="" />
+        <img src={logoWeb} alt="" />
       </div>
-      <div className="navigater">
+      <div className="desktop-navigater">
         <Menu
-          // onClick={onClick}
+          onClick={onClick}
           items={items}
           defaultSelectedKeys={[defaultSelectedKey]}
           defaultOpenKeys={[defaultSelectedKey]}
           mode="inline"
         />
+      </div>
+      <div className="mobile-navigater">
+        <Drawer
+          placement="left"
+          open={openDrawer}
+          closable={false}
+          onClose={handleClose}
+          width={276}
+          title={
+            <div>
+              <img src={logoWeb} srcSet={logoWeb} alt="" />
+              <div className="user-infomation-area">
+                <strong>Tài khoản: </strong>
+                <span>Vo Phuoc Loi</span>
+              </div>
+            </div>
+          }
+        >
+          <Menu
+            onClick={onClick}
+            items={items}
+            defaultSelectedKeys={[defaultSelectedKey]}
+            defaultOpenKeys={[defaultSelectedKey]}
+            mode="inline"
+            className="my-menu"
+          />
+        </Drawer>
       </div>
     </div>
   );

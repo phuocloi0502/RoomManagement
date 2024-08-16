@@ -4,10 +4,38 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 10px;
-  h2 {
-    color: $primary-color;
+  .menu-toggle {
+    display: none;
   }
-  span {
-    color: $text-color;
+  .header-title {
+    h2 {
+      color: $primary-color;
+    }
+  }
+  .user-infomation-area {
+    span {
+      color: $text-color;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .header-area {
+    .menu-toggle {
+      display: flex;
+      align-items: center;
+      justify-self: center;
+      font-size: 1.5rem;
+      flex: 10%;
+    }
+    .header-title {
+      text-align: center;
+      flex: 90%;
+      h2 {
+        font-size: 1.3rem;
+      }
+    }
+    .user-infomation-area {
+      display: none;
+    }
   }
 }

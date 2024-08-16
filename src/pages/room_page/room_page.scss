@@ -1,0 +1,35 @@
+.room-page-wrap {
+  .room-page-header-wrap {
+    width: 100%;
+    .radio-toggle {
+      width: 100%;
+      .ant-radio-group {
+        text-align: center;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        span {
+          font-size: 1.1rem;
+        }
+      }
+    }
+    .radio-button-toggle {
+      margin-top: 20px;
+      text-align: center;
+    }
+  }
+  .room-page-content {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 768px) {
+  .page-content-title {
+    h2 {
+      font-size: 1.2rem;
+    }
+  }
+}
