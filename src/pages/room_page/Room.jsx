@@ -1,7 +1,8 @@
 import React from "react";
 import "./room_page.scss";
-import { Radio } from "antd";
+import { Radio, Flex, Row, Col } from "antd";
 import { useState, useRef } from "react";
+import { Floor1Building1 } from "../../components/building_plan/Floor1Building1";
 
 export const Room = (props) => {
   //init
@@ -75,12 +76,14 @@ export const Room = (props) => {
             </Radio.Group>
           )}
         </div>
-      </div>
-      <div className="room-page-content">
-        <div className="page-content-title">
+        <div className="room-page-content-title">
           <h2>{`Sơ đồ ${selectedLabel} của tòa nhà ${buildingLabel}`}</h2>
         </div>
-        <div className="page-main-content">this is so do</div>
+      </div>
+      <div className="room-page-content">
+        <div className={`room-page-main-content ${1 === 2 ? "a" : "b"}`}>
+          <Floor1Building1 />
+        </div>
       </div>
     </div>
   );
