@@ -73,46 +73,31 @@ export const Navigate = (props) => {
   };
 
   return (
-    <div className="navigate-wrap">
-      <div className="logo-area">
-        <img src={logoWeb} alt="" />
-      </div>
-      <div className="desktop-navigater">
-        <Menu
-          onClick={onClick}
-          items={items}
-          defaultSelectedKeys={[defaultSelectedKey]}
-          defaultOpenKeys={[defaultSelectedKey]}
-          mode="inline"
-        />
-      </div>
-      <div className="mobile-navigater">
-        <Drawer
-          placement="left"
-          open={openDrawer}
-          closable={false}
-          onClose={handleClose}
-          width={276}
-          title={
-            <div>
-              <img src={logoWeb} srcSet={logoWeb} alt="" />
-              <div className="user-infomation-area">
-                <strong>Tài khoản: </strong>
-                <span>Vo Phuoc Loi</span>
-              </div>
-            </div>
-          }
-        >
-          <Menu
-            onClick={onClick}
-            items={items}
-            defaultSelectedKeys={[defaultSelectedKey]}
-            defaultOpenKeys={[defaultSelectedKey]}
-            mode="inline"
-            className="my-menu"
-          />
-        </Drawer>
-      </div>
-    </div>
+    <Drawer
+      className="navigate-wrap"
+      placement="left"
+      open={openDrawer}
+      closable={false}
+      onClose={handleClose}
+      width={276}
+      title={
+        <div>
+          <img src={logoWeb} srcSet={logoWeb} alt="" />
+          <div className="user-infomation-area">
+            <strong>Tài khoản: </strong>
+            <span>Vo Phuoc Loi</span>
+          </div>
+        </div>
+      }
+    >
+      <Menu
+        onClick={onClick}
+        items={items}
+        defaultSelectedKeys={[defaultSelectedKey]}
+        defaultOpenKeys={[defaultSelectedKey]}
+        mode="inline"
+        className="my-menu"
+      />
+    </Drawer>
   );
 };

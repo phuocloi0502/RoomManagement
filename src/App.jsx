@@ -7,9 +7,7 @@ import { Outlet } from "react-router-dom";
 function App() {
   return (
     <div className="web-container">
-      <div className="left-sidebar-wrap">
-        <Navigate />
-      </div>
+      <Navigate />
       <div className="content-wrap">
         <div className="header-area">
           <Header />

@@ -31,37 +31,6 @@
   }
   .room-page-content {
     margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-  }
-  .room-page-main-content {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-    width: 100%;
-
-    .col-height-200 {
-      height: 200px;
-    }
-    .col-height-100 {
-      height: 100px;
-    }
-    .ant-col {
-      text-align: center;
-      width: 100%;
-    }
-    .swimming {
-    }
-    .room-area {
-      background-color: gray;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 98%;
-      border-radius: 8px;
-    }
   }
 }
 .building-floor-plan {

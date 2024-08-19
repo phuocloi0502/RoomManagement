@@ -2,31 +2,11 @@
 .navigate-wrap {
   padding-top: 20px;
   height: 100%;
-  width: 300px;
-  .logo-area {
-    text-align: center;
-    img {
-      width: 25%;
-      height: 25%;
+  .user-infomation-area {
+    padding-top: 10px;
+    span {
+      color: $gray-600;
     }
-  }
-
-  .desktop-navigater {
-    padding: 20px 10px;
-    height: 75%;
-    .ant-menu {
-      height: 100%;
-      border-inline-end: 0 solid transparent !important;
-    }
-  }
-  .mobile-navigater {
-    display: none;
-  }
-}
-@media screen and (max-width: 768px) {
-  .mobile-navigater {
-    display: block;
-    height: 100%;
   }
   .ant-drawer-title {
     text-align: center;
@@ -38,11 +18,5 @@
   .ant-menu {
     height: 100%;
     border-inline-end: 0 solid transparent !important;
-  }
-  .user-infomation-area {
-    padding-top: 10px;
-    span {
-      color: $gray-600;
-    }
   }
 }

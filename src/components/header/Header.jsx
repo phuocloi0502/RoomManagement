@@ -16,10 +16,6 @@ export const Header = (props) => {
       <div className="header-title">
         <h2>Room Management</h2>
       </div>
-      <div className="user-infomation-area">
-        <strong>Tài khoản: </strong>
-        <span>Vo Phuoc Loi</span>
-      </div>
     </div>
   );
 };
