@@ -1,6 +1,7 @@
+$height: 10vh;
 .room-area {
   display: flex;
-  height: 10vh;
+  height: $height;
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -22,22 +23,22 @@
   font-size: 1.1vw;
 }
 .lobby {
-  height: 10vh;
+  height: $height;
   background-color: gray;
   color: white;
 }
 .staircase {
-  height: 5vh;
+  height: $height/2;
   background-color: rgb(244, 118, 15);
   color: white;
   font-size: 1vw;
-}
+} // cau thang
 .warehouse {
-  height: 3vh;
+  height: $height/3;
   background-color: gray;
   color: white;
   font-size: 0.9vw;
-}
+} // kho
 .swimming {
   background-color: rgb(1, 202, 253);
   border-radius: 5px;
@@ -45,19 +46,19 @@
   font-size: 1.8vw;
 }
 .kitchen {
-  height: 15vh;
+  height: $height * 1.5;
 
   background-color: bisque;
   color: rgb(7, 65, 241);
 }
 .pantry {
-  height: 5vh;
+  height: $height/2;
 
   background-color: bisque;
   color: rgb(7, 65, 241);
 }
 .dining {
-  height: 10vh;
+  height: $height;
   background-color: bisque;
   color: rgb(7, 65, 241);
 }
@@ -75,12 +76,35 @@
   font-size: 1vw;
 }
 .technique {
-  height: 4vh;
+  height: $height * 0.4;
   font-size: 0.7vw;
   background-color: cornflowerblue;
   color: white;
 }
 .toilet {
-  height: 4vh;
+  height: $height * 0.4;
   background-color: cadetblue;
+}
+@media screen and (max-width: 768px) {
+  $height: 5vh;
+  .room-area,
+  .lobby,
+  .dining {
+    height: $height;
+  }
+
+  .staircase,
+  .pantry {
+    height: $height/2;
+  }
+  .warehouse {
+    height: $height/3;
+  }
+  .kitchen {
+    height: $height * 1.5;
+  }
+  .toilet,
+  .technique {
+    height: $height * 0.4;
+  }
 }
