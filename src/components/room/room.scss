@@ -4,5 +4,83 @@
   width: 100%;
   justify-content: center;
   align-items: center;
-  background-color: blue;
+  background-color: rgb(241, 238, 151);
+  border-radius: 5px;
+  font-weight: 900;
+  font-size: 1.3vw;
+  color: #003366;
+}
+
+.base-room {
+  height: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  border-radius: 5px;
+  font-size: 1.1vw;
+}
+.lobby {
+  height: 10vh;
+  background-color: gray;
+  color: white;
+}
+.staircase {
+  height: 5vh;
+  background-color: rgb(244, 118, 15);
+  color: white;
+  font-size: 1vw;
+}
+.warehouse {
+  height: 3vh;
+  background-color: gray;
+  color: white;
+  font-size: 0.9vw;
+}
+.swimming {
+  background-color: rgb(1, 202, 253);
+  border-radius: 5px;
+  color: white;
+  font-size: 1.8vw;
+}
+.kitchen {
+  height: 15vh;
+
+  background-color: bisque;
+  color: rgb(7, 65, 241);
+}
+.pantry {
+  height: 5vh;
+
+  background-color: bisque;
+  color: rgb(7, 65, 241);
+}
+.dining {
+  height: 10vh;
+  background-color: bisque;
+  color: rgb(7, 65, 241);
+}
+.park {
+  background-color: green;
+  color: white;
+}
+.karaoke {
+  background-color: chocolate;
+  color: white;
+}
+.yoga {
+  background-color: purple;
+  color: white;
+  font-size: 1vw;
+}
+.technique {
+  height: 4vh;
+  font-size: 0.7vw;
+  background-color: cornflowerblue;
+  color: white;
+}
+.toilet {
+  height: 4vh;
+  background-color: cadetblue;
 }

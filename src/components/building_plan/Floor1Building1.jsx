@@ -7,260 +7,126 @@ export const Floor1Building1 = (props) => {
     <>
       <div>
         <Row justify="space-between" className="custom-row">
-          <Col className="room-wrap" span={3}>
-            <Flex justify="center" align="center" className="lobby-space">
-              Sanh
-            </Flex>
+          <Col className="base-room lobby" span={2}>
+            SẢNH
           </Col>
-          <Col className="room-wrap" span={3}>
-            <Room roomName="116" />
+          <Col className="base-room park" span={2}>
+            CÔNG VIÊN
           </Col>
-          <Col className="room-wrap" span={3}>
-            <Room roomName="113" />
+          <Col className="base-room karaoke" span={2}>
+            KARAOKE
           </Col>
-          <Col className="room-wrap" span={3}>
-            <Room roomName="111" />
+          <Col className="base-room yoga" span={2}>
+            YOGA
           </Col>
-          <Col className="room-wrap" span={3}>
-            <Room roomName="109" />
+          <Col span={2}>
+            <Room roomName="101" />
           </Col>
-          <Col className="room-wrap" span={3}>
-            <Room roomName="107" />
+          <Col span={3}>
+            <Room roomName="102" />
           </Col>
-          <Col className="room-wrap" span={2}>
-            <Room roomName="106" />
+          <Col span={3}>
+            <Room roomName="103" />
           </Col>
-          <Col className="room-wrap" span={2}>
-            <Room roomName="105" />
+          <Col span={1}>
+            <Row className="custom-row">
+              <Col className="base-room technique ">KT.NƯỚC</Col>
+            </Row>
+            <Row>
+              <Col className="base-room technique">KT.ĐIỆN</Col>
+            </Row>
+          </Col>
+          <Col span={2}>
+            <Row className="custom-row">
+              <Col className="base-room toilet ">N.VỆ SINH</Col>
+            </Row>
+            <Row>
+              <Col className="base-room staircase">CẦU THANG</Col>
+            </Row>
           </Col>
         </Row>
         <Row justify="end" className="custom-row">
-          <Col className="room-wrap" span={11}>
-            {" "}
-            <Flex justify="center" align="center" className="lobby-space">
-              Ho boi
-            </Flex>
+          <Col className="base-room swimming " span={12}>
+            HỒ BƠI
           </Col>
-          <Col className="room-wrap empty-space" span={3}>
-            {" "}
-            <Flex></Flex>
-          </Col>
+          <Col span={3} />
+
           <Col span={3}>
             <Row className="custom-row">
-              <Col
-                style={{
-                  height: "15vh",
-                  width: "100%",
-                  backgroundColor: "green",
-                }}
-              >
-                Bep
-              </Col>
+              <Col className="base-room  kitchen ">BẾP</Col>
             </Row>
             <Row className="custom-row">
-              <Col
-                style={{
-                  height: "5vh",
-                  width: "100%",
-                  backgroundColor: "green",
-                }}
-              >
-                Kho bep
-              </Col>
+              <Col className="base-room pantry">KHO BẾP</Col>
             </Row>
             <Row>
-              <Col
-                style={{
-                  height: "10vh",
-                  width: "100%",
-                  backgroundColor: "green",
-                }}
-              >
-                Phong an vip
-              </Col>
+              <Col className="base-room dining">PHÒNG ĂN VIP</Col>
             </Row>
           </Col>
         </Row>
         <Row justify="space-between" className="custom-row">
-          <Col className="room-wrap empty-space" span={3}>
-            {" "}
+          <Col span={2}>
             <Flex></Flex>
           </Col>
-          <Col className="room-wrap" span={3}>
+          <Col span={2}>
             <Room roomName="117" />
           </Col>
-          <Col className="room-wrap" span={3}>
+          <Col span={3}>
             <Room roomName="115" />
           </Col>
-          <Col className="room-wrap" span={3}>
+          <Col span={3}>
             <Room roomName="112" />
           </Col>
-          <Col className="room-wrap" span={3}>
+          <Col span={3}>
             <Room roomName="110" />
           </Col>
-          <Col className="room-wrap" span={3}>
+          <Col span={3}>
             <Room roomName="108" />
           </Col>
-          <Col className="room-wrap" span={2}>
-            <Flex></Flex>
+          <Col span={2}>
+            {" "}
+            <Row className="custom-row">
+              <Col className="base-room technique ">KT.NƯỚC</Col>
+            </Row>
+            <Row>
+              <Col className="base-room technique">KT.ĐIỆN</Col>
+            </Row>
           </Col>
-          <Col className="room-wrap" span={2}>
-            <Flex justify="center" align="center" className="lobby-space">
-              Cau thang
-            </Flex>
+          <Col span={2}>
+            <Row className="custom-row">
+              <Col className="base-room staircase ">CẦU THANG</Col>
+            </Row>
+            <Row>
+              <Col className="base-room warehouse">KHO</Col>
+            </Row>
           </Col>
         </Row>
         <Row justify="space-between">
-          <Col className="room-wrap" span={3}>
-            <Flex justify="center" align="center" className="lobby-space">
-              Sanh
-            </Flex>
+          <Col className="base-room lobby" span={2}>
+            SẢNH
           </Col>
-          <Col className="room-wrap" span={3}>
+          <Col span={2}>
             <Room roomName="116" />
           </Col>
-          <Col className="room-wrap" span={3}>
+          <Col span={3}>
             <Room roomName="113" />
           </Col>
-          <Col className="room-wrap" span={3}>
+          <Col span={3}>
             <Room roomName="111" />
           </Col>
-          <Col className="room-wrap" span={3}>
+          <Col span={3}>
             <Room roomName="109" />
           </Col>
-          <Col className="room-wrap" span={3}>
+          <Col span={3}>
             <Room roomName="107" />
           </Col>
-          <Col className="room-wrap" span={2}>
+          <Col span={2}>
             <Room roomName="106" />
           </Col>
-          <Col className="room-wrap" span={2}>
+          <Col span={2}>
             <Room roomName="105" />
           </Col>
         </Row>
       </div>
-      {/* <div>
-        <Row gutter={[12, 12]}>
-          <Col className="col-height-100" span={5}>
-            Sanh
-          </Col>
-          <Col className="col-height-100" span={5}>
-            ""
-          </Col>
-          <Col
-            className="col-height-100 swimming"
-            span={8}
-            style={{ backgroundColor: "aqua" }}
-          >
-            "s"
-          </Col>
-          <Col className="col-height-100" span={6}>
-            Sanh
-          </Col>
-        </Row>
-        <Row gutter={[12, 12]}>
-          <Col className="col-height-100" span={5}>
-            <div className="room-area">phong</div>
-          </Col>
-          <Col className="col-height-100" span={5}>
-            <div className="room-area">phong</div>
-          </Col>
-          <Col
-            className="col-height-100 swimming"
-            style={{ backgroundColor: "aqua" }}
-            span={8}
-          >
-            "s"
-          </Col>
-          <Col className="col-height-100" span={6}>
-            Cong vien
-          </Col>
-        </Row>
-
-        <Row gutter={[12, 12]}>
-          <Col className="col-height-200" span={5}>
-            <div className="room-area">phong</div>
-          </Col>
-          <Col className="col-height-200" span={5}>
-            <div className="room-area">phong</div>
-          </Col>
-          <Col span={8} className="swimming">
-            <Row gutter={[12, 12]}>
-              <Col
-                span={24}
-                className="col-height-100  "
-                style={{ backgroundColor: "aqua" }}
-              >
-                "s"
-              </Col>
-            </Row>
-            <Row gutter={[12, 12]}>
-              <Col
-                className="col-height-100 "
-                span={24}
-                style={{ backgroundColor: "aqua" }}
-              >
-                Ho boi 1
-              </Col>
-            </Row>
-          </Col>
-          <Col span={6}>
-            <Row>
-              <Col
-                className="col-height-100"
-                span={24}
-                style={{ backgroundColor: "blue" }}
-              >
-                karaoke1
-              </Col>
-            </Row>
-            <Row>
-              <Col
-                className="col-height-100"
-                span={24}
-                style={{ backgroundColor: "green" }}
-              >
-                gym2
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-        <Row gutter={[12, 12]}>
-          <Col className="col-height-200" span={5}>
-            <div className="room-area">phong</div>
-          </Col>
-          <Col className="col-height-200" span={5}>
-            <div className="room-area">phong</div>
-          </Col>
-          <Col
-            className="col-height-200 swimming"
-            style={{ backgroundColor: "aqua" }}
-            span={8}
-          >
-            Ho boi 2
-          </Col>
-          <Col span={6} className="col-height-200">
-            <Row>
-              <Col
-                className="col-height-100"
-                span={24}
-                style={{ backgroundColor: "blue" }}
-              >
-                khu yoga
-              </Col>
-            </Row>
-            <Row>
-              <Col
-                className="col-height-100"
-                span={24}
-                style={{ backgroundColor: "green" }}
-              >
-                <div className="room-area">phong</div>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-      </div> */}
     </>
   );
 };
