@@ -1,4 +1,6 @@
 $height: 10vh;
+@use "sass:math";
+@import "../../style/myColors";
 .room-area {
   display: flex;
   height: $height;
@@ -10,6 +12,10 @@ $height: 10vh;
   font-weight: 900;
   font-size: 1.3vw;
   color: #003366;
+  &:hover {
+    cursor: pointer;
+    border: 1.5px solid #003366;
+  }
 }
 
 .base-room {
@@ -28,13 +34,13 @@ $height: 10vh;
   color: white;
 }
 .staircase {
-  height: $height/2;
+  height: math.div($height, 2);
   background-color: rgb(244, 118, 15);
   color: white;
   font-size: 1vw;
 } // cau thang
 .warehouse {
-  height: $height/3;
+  height: math.div($height, 3);
   background-color: gray;
   color: white;
   font-size: 0.9vw;
@@ -52,7 +58,7 @@ $height: 10vh;
   color: rgb(7, 65, 241);
 }
 .pantry {
-  height: $height/2;
+  height: math.div($height, 2);
 
   background-color: bisque;
   color: rgb(7, 65, 241);
@@ -95,10 +101,10 @@ $height: 10vh;
 
   .staircase,
   .pantry {
-    height: $height/2;
+    height: math.div($height, 2);
   }
   .warehouse {
-    height: $height/3;
+    height: math.div($height, 3);
   }
   .kitchen {
     height: $height * 1.5;
