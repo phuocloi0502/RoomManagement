@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Room } from "../pages/room_page/Room";
+import { RoomPage } from "../pages/room_page/RoomPage";
 import { User } from "../pages/user_page/User";
 import App from "../App";
 
@@ -10,7 +10,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Room />,
+        element: <RoomPage />,
       },
       {
         path: "/user",

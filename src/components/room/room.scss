@@ -91,8 +91,15 @@ $height: 10vh;
   height: $height * 0.4;
   background-color: cadetblue;
 }
+.toilet-big {
+  height: $height;
+  background-color: cadetblue;
+}
 @media screen and (max-width: 768px) {
   $height: 5vh;
+  .toilet-big,
+  .karaoke,
+  .yoga,
   .room-area,
   .lobby,
   .dining {
@@ -107,7 +114,7 @@ $height: 10vh;
     height: math.div($height, 3);
   }
   .kitchen {
-    height: $height * 1.5;
+    height: $height;
   }
   .toilet,
   .technique {
