@@ -14,7 +14,7 @@ $height: 10vh;
   color: #003366;
   &:hover {
     cursor: pointer;
-    border: 1.5px solid #003366;
+    border: 3px solid #003366;
   }
 }
 
@@ -27,6 +27,13 @@ $height: 10vh;
   font-weight: 600;
   border-radius: 5px;
   font-size: 1.1vw;
+}
+.sub-row {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 .lobby {
   height: $height;
@@ -45,6 +52,14 @@ $height: 10vh;
   color: white;
   font-size: 0.9vw;
 } // kho
+
+.gate {
+  border: 5px solid $gray-600;
+  border-left: none;
+  border-radius: 0;
+  color: $gray-800;
+  font-size: 1.8vw;
+}
 .swimming {
   background-color: rgb(1, 202, 253);
   border-radius: 5px;
@@ -53,13 +68,13 @@ $height: 10vh;
 }
 .kitchen {
   height: $height * 1.5;
-
+  margin-bottom: 10px;
   background-color: bisque;
   color: rgb(7, 65, 241);
 }
 .pantry {
-  height: math.div($height, 2);
-
+  height: $height * 0.5;
+  margin-bottom: 10px;
   background-color: bisque;
   color: rgb(7, 65, 241);
 }
@@ -73,10 +88,12 @@ $height: 10vh;
   color: white;
 }
 .karaoke {
+  height: $height;
   background-color: chocolate;
   color: white;
 }
 .yoga {
+  height: $height;
   background-color: purple;
   color: white;
   font-size: 1vw;
@@ -97,27 +114,32 @@ $height: 10vh;
 }
 @media screen and (max-width: 768px) {
   $height: 5vh;
+  .base-room {
+    border-radius: 2px;
+  }
   .toilet-big,
   .karaoke,
   .yoga,
   .room-area,
-  .lobby,
+  .lobby {
+    height: $height * 0.5;
+    border-radius: 2px;
+  }
   .dining {
-    height: $height;
+    height: $height * 0.3;
   }
-
-  .staircase,
   .pantry {
-    height: math.div($height, 2);
-  }
-  .warehouse {
-    height: math.div($height, 3);
+    height: $height * 0.3;
+    margin-bottom: 5px;
   }
   .kitchen {
-    height: $height;
+    height: $height * 0.4;
+    margin-bottom: 5px;
   }
+  .warehouse,
+  .staircase,
   .toilet,
   .technique {
-    height: $height * 0.4;
+    height: $height * 0.2;
   }
 }

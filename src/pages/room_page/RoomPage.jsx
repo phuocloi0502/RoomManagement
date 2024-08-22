@@ -11,9 +11,9 @@ import { Floor3Building2 } from "../../components/building_plan/building_2/Floor
 export const RoomPage = (props) => {
   //init
   const [building, setBuilding] = useState();
-  const [buildingLabel, setBuildingLabel] = useState("1");
+  const [buildingLabel, setBuildingLabel] = useState("APACHE");
   const [floor, setFloor] = useState("floor1");
-  const [selectedLabel, setSelectedLabel] = useState("tầng 1");
+  const [selectedLabel, setSelectedLabel] = useState("TẦNG 1");
   const [currentFLoor, setCurrentFloor] = useState(<Floor1Building1 />);
 
   const floorList = [
@@ -49,7 +49,7 @@ export const RoomPage = (props) => {
     if (value == "building1") {
       setBuildingLabel("1");
       setFloor("floor1");
-      setSelectedLabel("tầng 1");
+      setSelectedLabel("TẦNG 1");
       const selectedFloor = floorList.find((item) => item.key === "floor1");
       if (selectedFloor) {
         setCurrentFloor(selectedFloor.component);
@@ -57,7 +57,7 @@ export const RoomPage = (props) => {
     } else {
       setBuildingLabel("2");
       setFloor("floor4");
-      setSelectedLabel("tầng 1");
+      setSelectedLabel("TẦNG 1");
       const selectedFloor = floorList.find((item) => item.key === "floor4");
       if (selectedFloor) {
         setCurrentFloor(selectedFloor.component);
@@ -68,12 +68,12 @@ export const RoomPage = (props) => {
   const handleFloorChange = (e) => {
     const { value } = e.target;
     const labels = {
-      floor1: "tầng 1",
-      floor2: "tầng 2",
-      floor3: "tầng 3",
-      floor4: "tầng 1",
-      floor5: "tầng 2",
-      floor6: "tầng 3",
+      floor1: "TẦNG 1",
+      floor2: "TẦNG 2",
+      floor3: "TẦNG 3",
+      floor4: "TẦNG 1",
+      floor5: "TẦNG 2",
+      floor6: "TẦNG 3",
     };
     setSelectedLabel(labels[value]);
     setFloor(value);
@@ -88,8 +88,8 @@ export const RoomPage = (props) => {
       <div className="room-page-header-wrap">
         <div className="radio-toggle">
           <Radio.Group onChange={handleRadioChange} defaultValue={"building1"}>
-            <Radio value="building1">Tòa nhà số 1</Radio>
-            <Radio value="building2">Tòa nhà số 2</Radio>
+            <Radio value="building1">TÒA NHÀ APACHE</Radio>
+            <Radio value="building2">TÒA NHÀ APH2</Radio>
           </Radio.Group>
         </div>
         <div className="radio-button-toggle">
@@ -118,14 +118,14 @@ export const RoomPage = (props) => {
             </Radio.Group>
           )}
         </div>
-        <div className="room-page-content-title">
-          <h2>{`Sơ đồ ${selectedLabel} của tòa nhà ${buildingLabel}`}</h2>
-        </div>
       </div>
       <div className="room-page-content">
         <div className={`room-page-main-content ${1 === 2 ? "a" : "b"}`}>
           {currentFLoor}
         </div>
+      </div>
+      <div className="room-page-content-title">
+        <h2>{`SƠ ĐỒ ${selectedLabel} `}</h2>
       </div>
     </div>
   );
