@@ -65,9 +65,9 @@ export const Navigate = (props) => {
       navigate(e.key);
     }
   };
-  useEffect(() => {
-    onClick({ key: defaultSelectedKey });
-  }, []);
+  // useEffect(() => {
+  //   onClick({ key: defaultSelectedKey });
+  // }, []);
   const handleClose = () => {
     dispatch(setOpenDrawer(false));
   };
