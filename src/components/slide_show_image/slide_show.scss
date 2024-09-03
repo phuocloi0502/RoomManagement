@@ -6,12 +6,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  .slide-container {
+  .slide-wrap {
     position: relative;
     width: 100%;
     overflow: hidden;
-    .slide-wrap {
+    .slide-container {
       display: flex;
+
       transition: transform 1s ease-in-out;
       .slide {
         min-width: 100%;

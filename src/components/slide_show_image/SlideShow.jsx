@@ -55,12 +55,16 @@ export const SlideShow = (props) => {
       }
     }
   }, [currentIndex]);
+  useEffect(() => {
+    const intervalId = setInterval(handleNext, 3000);
+    return () => clearInterval(intervalId);
+  }, [currentIndex]);
 
   return (
     <div className="my-slide-show-wrap">
-      <div className="slide-container">
+      <div className="slide-wrap">
         <div
-          className="slide-wrap"
+          className="slide-container"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
           {imageSlideShow.map((src, index) => (
