@@ -49,7 +49,7 @@ export const SlideShow = (props) => {
       if (activeThumbnail) {
         activeThumbnail.scrollIntoView({
           behavior: "smooth",
-          block: "center",
+          block: "nearest",
           inline: "center",
         });
       }

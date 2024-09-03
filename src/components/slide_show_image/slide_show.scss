@@ -67,7 +67,7 @@
     justify-content: flex-start;
     align-items: center;
     white-space: nowrap;
-    // scroll-snap-type: x mandatory; /* Enable snap scrolling */
+    scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
   }
 
