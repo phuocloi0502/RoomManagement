@@ -64,7 +64,7 @@ export const ApacheBuilding = (props) => {
         </Flex>
         {currentFLoor}
         <Flex justify="center">
-          <h3>TÒA NHÀ APACHE</h3>
+          <h3>SƠ ĐỒ TÒA NHÀ APACHE</h3>
         </Flex>
       </Flex>
     </div>

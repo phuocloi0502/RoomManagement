@@ -46,6 +46,12 @@ $height: 10vh;
   color: white;
   font-size: 1vw;
 } // cau thang
+.staircase-big {
+  height: $height;
+  background-color: rgb(244, 118, 15);
+  color: white;
+  font-size: 1vw;
+}
 .warehouse {
   height: math.div($height, 3);
   background-color: gray;
@@ -77,7 +83,7 @@ $height: 10vh;
   margin-bottom: 10px;
   background-color: bisque;
   color: rgb(7, 65, 241);
-}
+} // kho bep
 .dining {
   height: $height;
   background-color: bisque;
@@ -121,6 +127,7 @@ $height: 10vh;
   .karaoke,
   .yoga,
   .room-area,
+  .staircase-big,
   .lobby {
     height: $height * 0.5;
     border-radius: 2px;

@@ -1,8 +1,9 @@
+@import "../../style/myColors";
 .building-wrap {
   width: 100%;
   h3 {
     margin-bottom: 10px;
-    color: red;
+    color: $text-title;
   }
   .back-button {
     background-color: cadetblue;

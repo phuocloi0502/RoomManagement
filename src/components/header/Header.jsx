@@ -3,6 +3,7 @@ import "./header.scss";
 import { IoIosMenu } from "react-icons/io";
 import { useDispatch } from "react-redux";
 import { setOpenDrawer } from "../../redux/slide/myState";
+import { Link } from "react-router-dom";
 export const Header = (props) => {
   const dispatch = useDispatch();
   const handleToggleMenu = () => {
@@ -14,7 +15,9 @@ export const Header = (props) => {
         <IoIosMenu />
       </div>
       <div className="header-title">
-        <h2>Room Management</h2>
+        <Link to={"/"}>
+          <h2>Room Management</h2>
+        </Link>
       </div>
     </div>
   );

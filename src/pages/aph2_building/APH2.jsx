@@ -23,10 +23,17 @@ const floorList = [
 ];
 export const APH2 = (props) => {
   const [floor, setFloor] = useState("floor1");
+  const [selectedLabel, setSelectedLabel] = useState("TẦNG 1");
   const [currentFLoor, setCurrentFloor] = useState(<Floor1Building2 />);
   const handleFloorChange = (e) => {
     const { value } = e.target;
     setFloor(value);
+    const labels = {
+      floor1: "TẦNG 1",
+      floor2: "TẦNG 2",
+      floor3: "TẦNG 3",
+    };
+    setSelectedLabel(labels[value]);
     const selectedFloor = floorList.find((item) => item.key === value);
     if (selectedFloor) {
       setCurrentFloor(selectedFloor.component);
@@ -64,7 +71,7 @@ export const APH2 = (props) => {
         </Flex>
         {currentFLoor}
         <Flex justify="center">
-          <h3>TÒA NHÀ APH2</h3>
+          <h3>SƠ ĐỒ {selectedLabel} TÒA NHÀ APH2</h3>
         </Flex>
       </Flex>
     </div>

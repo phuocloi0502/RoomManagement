@@ -17,6 +17,9 @@
     h2 {
       color: $primary-color;
     }
+    &:hover {
+      cursor: pointer;
+    }
   }
   .user-infomation-area {
     span {
