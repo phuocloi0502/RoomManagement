@@ -11,24 +11,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { GoDotFill } from "react-icons/go";
 
 export const SlideShow = (props) => {
-  const imageSlideShow = [
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-  ];
-  const totalSlides = imageSlideShow.length;
+  const totalSlides = props.slide.length;
   const [currentIndex, setCurrentIndex] = useState(0);
   const thumbnailRef = useRef(null);
   const scrollContainerRef = useRef(null);
@@ -55,10 +38,10 @@ export const SlideShow = (props) => {
       }
     }
   }, [currentIndex]);
-  useEffect(() => {
-    const intervalId = setInterval(handleNext, 3000);
-    return () => clearInterval(intervalId);
-  }, [currentIndex]);
+  // useEffect(() => {
+  //   const intervalId = setInterval(handleNext, 3000);
+  //   return () => clearInterval(intervalId);
+  // }, [currentIndex]);
 
   return (
     <div className="my-slide-show-wrap">
@@ -67,7 +50,7 @@ export const SlideShow = (props) => {
           className="slide-container"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
-          {imageSlideShow.map((src, index) => (
+          {props.slide.map((src, index) => (
             <div className="slide" key={index}>
               <Image src={src} />
             </div>
@@ -82,12 +65,12 @@ export const SlideShow = (props) => {
       </div>
 
       <div className="thumbnail-wrap" ref={thumbnailRef}>
-        {imageSlideShow.map((_, index) => (
+        {props.slide.map((_, index) => (
           <div
             key={index}
             className={`thumbnail ${index === currentIndex ? "active" : ""}`}
             onClick={() => handleThumbnailClick(index)}
-            style={{ backgroundImage: `url(${imageSlideShow[index]})` }}
+            style={{ backgroundImage: `url(${props.slide[index]})` }}
           />
         ))}
       </div>

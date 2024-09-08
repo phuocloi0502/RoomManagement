@@ -1,8 +1,24 @@
 import React from "react";
 import "./room_detail.scss";
 import { useParams } from "react-router-dom";
-import { Divider, Flex, Button, Image } from "antd";
-import userAvatar from "../../assets/user_avatar.avif";
+import {
+  DatePicker,
+  Divider,
+  Flex,
+  Button,
+  Image,
+  Modal,
+  Form,
+  Input,
+  Space,
+} from "antd";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setOpenResidentModal,
+  setOpenReservationModal,
+  setOpenCheckOutModal,
+} from "../../redux/slide/MyState";
+
 import h1 from "../../assets/room_img_1.jpg";
 import h2 from "../../assets/room_img_2.jpeg";
 import h3 from "../../assets/room_img_3.jpg";
@@ -11,21 +27,70 @@ import h5 from "../../assets/room_img_5.jpeg";
 import { GiReturnArrow } from "react-icons/gi";
 import { PiDoorFill } from "react-icons/pi";
 import { SlideShow } from "../../components/slide_show_image/SlideShow";
+import { ResidentInfoModal } from "../../components/modal/ResidentInfoModal";
+import { ReservationModal } from "../../components/modal/ReservationModal";
+import { CheckoutModal } from "../../components/modal/CheckoutModal";
 export const RoomDetail = (props) => {
+  // inti
+  const imageSlideShow = [h1, h2, h3, h4, h5];
+  const dispatch = useDispatch();
+
+  const openReservationModal = useSelector(
+    (state) => state.MyState.openReservationModal
+  );
   const { roomId } = useParams();
+  // hanlde
+
   return (
     <div className="room-detail-wrap">
+      <ResidentInfoModal />
+      {/* Modal thông tin người thuê phòng */}
+      <ReservationModal />
+      {/* Modal đặt phòng */}
+      <CheckoutModal />
+      {/* Modal trả phòng */}
       <div className="room-detail-info-wrap">
         <div className="room-detail-info-title">
           <h3>THÔNG TIN PHÒNG {roomId}</h3>
         </div>
+        <div className="room-status">
+          <h3>
+            Trạng thái phòng: <strong>CÓ NGƯỜI</strong>{" "}
+            <Button
+              size="large"
+              type="link"
+              onClick={() => {
+                dispatch(setOpenResidentModal(true));
+              }}
+            >
+              (Xem chi tiết ...)
+            </Button>
+          </h3>
+        </div>
+
         <div className="room-detail-info-content">
           <div className="btn-custom-wrap">
             <div className="btn-reservation-toggle">
-              <Button icon={<PiDoorFill />}>ĐẶT PHÒNG</Button>
+              <Button
+                onClick={() => {
+                  dispatch(setOpenReservationModal(true));
+                }}
+                size="large"
+                icon={<PiDoorFill />}
+              >
+                ĐẶT PHÒNG
+              </Button>
             </div>
             <div className="btn-checkout-toggle">
-              <Button icon={<GiReturnArrow />}>TRẢ PHÒNG</Button>
+              <Button
+                size="large"
+                icon={<GiReturnArrow />}
+                onClick={() => {
+                  dispatch(setOpenCheckOutModal(true));
+                }}
+              >
+                TRẢ PHÒNG
+              </Button>
             </div>
           </div>
           <Divider orientation="center">
@@ -33,8 +98,9 @@ export const RoomDetail = (props) => {
           </Divider>
           {/* room image */}
           <div className="slideshow-room-image-wrap">
-            <SlideShow />
+            <SlideShow slide={imageSlideShow} />
           </div>
+
           {/* <div className="image-room-wrap">
             <Flex wrap gap={"small"}>
               <Image src={h1} />
@@ -44,59 +110,6 @@ export const RoomDetail = (props) => {
               <Image width={300} src={h5} />
             </Flex>
           </div> */}
-          <Divider orientation="center">
-            <h2>Nội thất</h2>
-          </Divider>
-          <div className="Interior-wrap">
-            <div>
-              <ul>
-                <li>Bàn: 1 cái</li>
-                <li>Ghế: 1 cái</li>
-                <li>Tủ lạnh</li>
-                <li>Tivi</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="resident-info-wrap">
-        <div className="resident-info-title">
-          <h3>THÔNG TIN NGƯỜI ĐANG Ở</h3>
-        </div>
-        <div className="resident-info-content">
-          <div className="group-avatar-name text">
-            <img src={userAvatar} alt="" />
-            <Flex vertical justify={"space-between"}>
-              <div>
-                <span> Họ Tên:</span>
-                <strong> NGUYỄN VĂN A</strong>
-              </div>
-              <div>
-                <span> Ngày sinh:</span>
-                <strong> 01/01/1990</strong>
-              </div>
-            </Flex>
-          </div>
-          <div className="group-address-time text">
-            <div>
-              <span> Quốc tịch:</span>
-              <strong> VIỆT NAM</strong>
-            </div>
-            <div>
-              <span> Địa chỉ:</span>
-              <strong> Long Hồ, Vĩnh Long</strong>
-            </div>
-            <div className="time">
-              <span> Ngày vào ở:</span>
-              <Button type="primary">01/02/2024</Button>
-            </div>
-            <div className="time">
-              <span> Ngày trả phòng (dự kiến):</span>
-              <Button type="primary" danger>
-                10/02/2024
-              </Button>
-            </div>
-          </div>
         </div>
       </div>
     </div>
