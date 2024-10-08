@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import {
   Modal,
   Flex,
@@ -15,49 +15,61 @@ import userAvatar from "../../assets/avatar_default.jpg";
 import { UploadOutlined } from "@ant-design/icons";
 import dayjs from "dayjs";
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
+import "./modal_styles.scss";
+import { getCanBoById } from "../../redux/slide/CanBoSlide";
 dayjs.extend(isSameOrAfter);
 export const ResidentInfoModal = (props) => {
   const openResidentModal = useSelector(
     (state) => state.MyState.openResidentModal
   );
+  const canBoIdCurrent = useSelector((state) => state.RoomSlide.canBoIdCurrent);
+  const canBoDataById = useSelector((state) => state.CanBoSlide.canBoDataById);
+
   const dispatch = useDispatch();
   const [avatar, setAvatar] = useState();
   const [fileList, setFileList] = useState([]);
   const [isDisable, setIsDisable] = useState(true);
+  const inputRef = useRef(null);
+  const [form] = Form.useForm();
+  const formData = new FormData();
   // const [isFasle, setIsFalse] = useState(f);
   //   const [previewImage, setPreviewImage] = useState(userAvatar);
+  useEffect(() => {
+    if (canBoIdCurrent != null) {
+      dispatch(getCanBoById(canBoIdCurrent));
+    }
+  }, [canBoIdCurrent]);
 
+  // xử lí dữ liệu nhận từ api
   const residentInfo = {
-    name: "NGUYỄN VĂN A",
-
-    avatar:
-      "https://upload.wikimedia.org/wikipedia/commons/1/1e/Default-avatar.jpg",
-    // avatar: "",
-    birthday: dayjs("1999-02-05"),
-    nationality: "VIET NAM",
-    address: "LONG HO, VINH LONG",
-    checkInDate: dayjs("2024-09-15"),
-    checkOutDate: dayjs("2024-09-25"),
+    tenCanBo: canBoDataById?.tenCanBo,
+    avatar: canBoDataById?.hinhAnhCanBos[0]?.url,
+    ngayDen: dayjs(canBoDataById?.ngayDen),
+    ngayDi: dayjs(canBoDataById?.ngayDi),
   };
   useEffect(() => {
-    if (residentInfo.avatar == "") {
+    if (residentInfo) {
+      form.setFieldsValue({
+        ...residentInfo,
+      });
+    }
+  }, [residentInfo]);
+
+  // xử lí avatar can bo
+  useEffect(() => {
+    if (residentInfo?.avatar == undefined) {
       setAvatar(userAvatar);
     } else {
-      setAvatar(residentInfo.avatar);
+      setAvatar(residentInfo?.avatar);
     }
-  }, [residentInfo.avatar]);
-  const [form] = Form.useForm();
-  useEffect(() => {
-    form.setFieldsValue({
-      ...residentInfo,
-    });
-  }, [form]);
+  }, []);
+
   const handleCloseResidentModal = () => {
     setIsDisable(true);
     form.setFieldsValue({
       ...residentInfo,
     });
-    if (residentInfo.avatar == "") {
+    if (residentInfo?.avatar == undefined) {
       setAvatar(userAvatar);
     } else {
       setAvatar(residentInfo.avatar);
@@ -65,7 +77,7 @@ export const ResidentInfoModal = (props) => {
     setFileList([]);
     dispatch(setOpenResidentModal(false));
   };
-  const formData = new FormData();
+
   fileList.forEach((file) => {
     formData.append("files", file.originFileObj);
   });
@@ -83,8 +95,6 @@ export const ResidentInfoModal = (props) => {
       setAvatar(userAvatar);
     }
   };
-
-  console.log(fileList);
 
   return (
     <div>
@@ -107,12 +117,13 @@ export const ResidentInfoModal = (props) => {
           }}
           autoComplete="off"
           form={form}
+          className="form-resident-info-wrap"
         >
           <Flex align="end" justify={"end"} className="avatar-wrap">
             <Flex flex={2} justify="end" className="avatar-container">
               <Image src={avatar} preview={false} width={100} />
             </Flex>
-            <Flex flex={5}>
+            <Flex flex={5} gap={20}>
               <Upload
                 accept="image/*"
                 className="avatar-uploader"
@@ -121,79 +132,58 @@ export const ResidentInfoModal = (props) => {
                 onChange={handleChange}
                 fileList={fileList}
               >
-                <Flex gap={10}>
-                  <Button icon={<UploadOutlined />}>Chọn ảnh</Button>
-                  {fileList.length > 0 ? (
-                    <Button type="primary">Lưu</Button>
-                  ) : (
-                    <></>
-                  )}
-                </Flex>
+                <Button icon={<UploadOutlined />}>Chọn ảnh</Button>
               </Upload>
+              {fileList.length > 0 ? (
+                <Button type="primary">Lưu</Button>
+              ) : (
+                <></>
+              )}
             </Flex>
           </Flex>
           <Form.Item
-            name="name"
+            name="tenCanBo"
             label="Họ và Tên:"
             rules={[
               { required: true, message: "Vui lòng nhập họ và tên!" },
               { min: 5, message: "Độ dài tối thiểu là 5 ký tự!" },
             ]}
           >
-            <Input readOnly={isDisable} placeholder="Nhập họ tên vào đây..." />
-          </Form.Item>
-          <Form.Item
-            name="birthday"
-            label="Ngày sinh:"
-            // rules={[{ required: true, message: "Vui lòng nhập ngày sinh!" }]}
-          >
-            <DatePicker
-              disabled={isDisable}
-              allowClear={isDisable}
-              // open={!isDisable}
-              // inputReadOnly={isDisable}
-              format={"DD/MM/YYYY"}
-            />
-          </Form.Item>
-          <Form.Item
-            name="nationality"
-            label="Quốc tịch:"
-            // rules={[{ required: true, message: "Vui lòng nhập quốc tịch" }]}
-          >
             <Input
+              ref={inputRef}
               readOnly={isDisable}
-              placeholder="Nhập quốc tịch vào đây..."
+              placeholder="Nhập họ tên vào đây..."
             />
           </Form.Item>
+
           <Form.Item
-            name="address"
-            label="Địa chỉ:"
-            // rules={[{ required: true, message: "Vui lòng nhập địa chỉ" }]}
-          >
-            <Input readOnly={isDisable} placeholder="Nhập địa chỉ vào đây..." />
-          </Form.Item>
-          <Form.Item
-            name="checkInDate"
+            name="ngayDen"
             label="Ngày vào ở:"
             rules={[{ required: true, message: "Vui lòng nhập ngày vào ở" }]}
           >
-            <DatePicker
-              status="warning"
-              disabled={isDisable}
-              allowClear={isDisable}
-              // open={!isDisable}
-              // inputReadOnly={isDisable}
-              format={"DD/MM/YYYY"}
-            />
+            {isDisable ? (
+              <h4 className="text-check-in-date">
+                {residentInfo.ngayDen.format("DD/MM/YYYY")}
+              </h4>
+            ) : (
+              <DatePicker
+                status="warning"
+                disabled={isDisable}
+                allowClear={isDisable}
+                // open={!isDisable}
+                // inputReadOnly={isDisable}
+                format={"DD/MM/YYYY"}
+              />
+            )}
           </Form.Item>
           <Form.Item
-            name="checkOutDate"
+            name="ngayDi"
             label="Ngày trả (dự kiến):"
             rules={[
               { required: true, message: "Vui lòng nhập ngày trả!" },
               ({ getFieldValue }) => ({
                 validator(_, value) {
-                  const checkInDate = getFieldValue("checkInDate");
+                  const checkInDate = getFieldValue("ngayDen");
                   if (
                     !value ||
                     !checkInDate ||
@@ -208,14 +198,20 @@ export const ResidentInfoModal = (props) => {
               }),
             ]}
           >
-            <DatePicker
-              status="error"
-              disabled={isDisable}
-              allowClear={isDisable}
-              // open={!isDisable}
-              // inputReadOnly={isDisable}
-              format={"DD/MM/YYYY"}
-            />
+            {isDisable ? (
+              <h4 className="text-check-out-date">
+                {residentInfo.ngayDi.format("DD/MM/YYYY")}
+              </h4>
+            ) : (
+              <DatePicker
+                status="error"
+                disabled={isDisable}
+                allowClear={isDisable}
+                // open={!isDisable}
+                // inputReadOnly={isDisable}
+                format={"DD/MM/YYYY"}
+              />
+            )}
           </Form.Item>
           <Flex justify={"space-around"} className="btn-modal-wrap">
             {!isDisable ? (
@@ -227,6 +223,9 @@ export const ResidentInfoModal = (props) => {
                 type="primary"
                 htmlType="submit"
                 onClick={() => {
+                  inputRef.current.focus({
+                    cursor: "end",
+                  });
                   setIsDisable(false);
                 }}
               >

@@ -1,7 +1,9 @@
 @import "./style/myColors";
 .web-container {
   position: relative;
-  min-width: 100vw;
+  min-width: 1200px;
+  overflow: auto;
+
   width: 100%;
   margin: 0 auto;
   display: flex;
@@ -28,5 +30,10 @@
       padding: 10px 0 100px 0;
       height: 100%;
     }
+  }
+}
+@media screen and (max-width: 768px) {
+  .web-container {
+    min-width: 100vw;
   }
 }

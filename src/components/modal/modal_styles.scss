@@ -1,3 +1,4 @@
+@import "../../style/myColors";
 .avatar-wrap {
   margin: 10px;
   .avatar-container {
@@ -10,6 +11,90 @@
     padding-right: 8px;
   }
 }
+.btn-modal-wrap {
+  margin-top: 10px;
+  button {
+    width: 100px;
+    font-size: 0.9rem;
+  }
+}
 .footer-modal-wrap {
   margin-top: 30px;
+}
+.form-reservation-wrap {
+  button {
+    width: 80px;
+  }
+}
+.form-resident-info-wrap {
+  .text-check-in-date {
+    color: $my-blue;
+    font-size: 1rem;
+    font-style: italic;
+  }
+  .text-check-out-date {
+    color: $accent-color;
+    font-size: 1rem;
+    font-style: italic;
+  }
+}
+.add-avatar-user-wrap {
+  text-align: center;
+  .avatar-preview-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 20px;
+  }
+
+  .btn-upload-avatar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 40px;
+    margin: 20px;
+    background-color: rgb(251, 251, 251);
+    border: 1px dashed gray;
+    font-size: 1rem;
+  }
+}
+.ant-modal-title {
+  text-align: center;
+  color: $accent-color !important;
+}
+.edit-slider-modal-wrap {
+  .btn-add-image {
+    margin-bottom: 12px;
+    margin-right: 20px;
+  }
+  img {
+    object-fit: cover;
+    height: 200px !important;
+  }
+  .preview-image-wrap {
+    position: relative;
+    .btn-delete-preview-image {
+      position: absolute;
+      top: 5px;
+      z-index: 999;
+      right: 5px;
+      font-size: 1.6rem;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      transition: transform 0.2s ease, font-size 0.2s ease;
+      opacity: 0.3;
+      &:hover {
+        transform: scale(1.05);
+        opacity: 0.8;
+      }
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+  }
 }

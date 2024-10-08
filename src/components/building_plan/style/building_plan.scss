@@ -4,6 +4,32 @@
 .floor-wrap {
   animation: fadeIn 0.5s ease-in-out;
 }
+.floor-vertical-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  animation: fadeIn 0.5s ease-in-out;
+}
+.custom-row-vertical {
+  width: 1000px;
+  margin-bottom: 25px;
+}
+.room-vertical {
+  height: 200px !important;
+  font-size: 1.2rem !important;
+  span {
+    font-size: 1.2rem !important;
+  }
+}
+.margin-row {
+  margin-left: -40px;
+  margin-right: -40px;
+}
+.padding-col {
+  padding-left: 40px;
+  padding-right: 40px;
+}
 
 @keyframes fadeIn {
   from {
@@ -16,5 +42,17 @@
 @media screen and (max-width: 768px) {
   .custom-row {
     margin-bottom: 10px;
+  }
+  .custom-row-vertical {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+  .margin-row {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .padding-col {
+    padding-left: 5px;
+    padding-right: 5px;
   }
 }

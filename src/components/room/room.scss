@@ -3,19 +3,37 @@ $height: 10vh;
 @import "../../style/myColors";
 .room-area {
   display: flex;
+  flex-direction: column;
+  gap: 10px;
   height: $height;
   width: 100%;
   justify-content: center;
   align-items: center;
-  background-color: rgb(241, 238, 151);
+  // background-color: $VACANT-color;
+
   border-radius: 5px;
   font-weight: 900;
   font-size: 1.3vw;
-  color: #003366;
+  color: white;
   &:hover {
     cursor: pointer;
-    border: 3px solid #003366;
+    transition: all ease-in-out 0.3s;
+    border: 3px solid #d9d9d9;
   }
+  span {
+    text-align: center;
+    color: $VACANT-color;
+    background-color: white;
+    padding: 4px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+  }
+}
+.VACANT {
+  background-color: $VACANT-color;
+}
+.OCCUPIED {
+  background-color: $OCCUPIED-color;
 }
 
 .base-room {
@@ -28,12 +46,24 @@ $height: 10vh;
   border-radius: 5px;
   font-size: 1.1vw;
 }
+.small-room {
+  height: 100px !important;
+}
+.small-room-sub {
+  height: 95px !important;
+}
 .sub-row {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+}
+.balcony {
+  height: 100px;
+  background-color: rgb(118, 19, 137);
+  font-size: 1rem;
+  color: white;
 }
 .lobby {
   height: $height;
@@ -51,6 +81,12 @@ $height: 10vh;
   background-color: rgb(244, 118, 15);
   color: white;
   font-size: 1vw;
+}
+.staircase-vertical {
+  height: 100px;
+  background-color: rgb(244, 118, 15);
+  color: white;
+  font-size: 1rem;
 }
 .warehouse {
   height: math.div($height, 3);
@@ -78,21 +114,24 @@ $height: 10vh;
   background-color: bisque;
   color: rgb(7, 65, 241);
 }
+
 .pantry {
   height: $height * 0.5;
   margin-bottom: 10px;
-  background-color: bisque;
-  color: rgb(7, 65, 241);
+  background-color: gray;
+  color: white;
 } // kho bep
 .dining {
   height: $height;
-  background-color: bisque;
+  background-color: rgb(244, 239, 81);
   color: rgb(7, 65, 241);
 }
-.park {
-  background-color: green;
-  color: white;
+.dining-vertical {
+  height: 305px !important;
+  background-color: rgb(244, 239, 81);
+  color: rgb(7, 65, 241);
 }
+
 .karaoke {
   height: $height;
   background-color: chocolate;
@@ -104,6 +143,11 @@ $height: 10vh;
   color: white;
   font-size: 1vw;
 }
+.gym {
+  height: 310px !important;
+  background-color: purple;
+  color: white;
+}
 .technique {
   height: $height * 0.4;
   font-size: 0.7vw;
@@ -113,10 +157,12 @@ $height: 10vh;
 .toilet {
   height: $height * 0.4;
   background-color: cadetblue;
+  color: white;
 }
 .toilet-big {
   height: $height;
   background-color: cadetblue;
+  color: white;
 }
 @media screen and (max-width: 768px) {
   $height: 5vh;

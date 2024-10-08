@@ -30,14 +30,20 @@ export const SlideShow = (props) => {
       const activeThumbnail =
         scrollContainer.querySelector(".thumbnail.active");
       if (activeThumbnail) {
-        activeThumbnail.scrollIntoView({
-          behavior: "smooth",
-          block: "nearest",
-          inline: "center",
-        });
+        const { left, right } = activeThumbnail.getBoundingClientRect();
+        const containerRect = scrollContainer.getBoundingClientRect();
+
+        if (left < containerRect.left || right > containerRect.right) {
+          activeThumbnail.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center",
+          });
+        }
       }
     }
   }, [currentIndex]);
+
   // useEffect(() => {
   //   const intervalId = setInterval(handleNext, 3000);
   //   return () => clearInterval(intervalId);

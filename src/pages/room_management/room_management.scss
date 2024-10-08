@@ -7,6 +7,7 @@
   justify-content: center;
   gap: 20px;
   .button-building-toggle {
+    height: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,5 +31,11 @@
     h5 {
       color: rgb(234, 49, 49);
     }
+  }
+}
+@media screen and (max-width: 768px) {
+  .button-building-toggle {
+    height: 120px !important;
+    width: 150px !important;
   }
 }

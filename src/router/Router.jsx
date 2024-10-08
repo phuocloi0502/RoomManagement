@@ -1,12 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
-import { RoomPage } from "../pages/room_page/RoomPage";
 import { User } from "../pages/user_page/User";
 
 import App from "../App";
 import { RoomManagement } from "../pages/room_management/RoomManagement";
-import { ApacheBuilding } from "../pages/apache_building/ApacheBuilding";
 import { APH2 } from "../pages/aph2_building/APH2";
 import { RoomDetail } from "../pages/room_detail/RoomDetail";
+import { APH1 } from "../pages/aph1_building/APH1";
+import { LoginAdmin } from "../pages/LoginAdmin/LoginAdmin";
 
 const router = createBrowserRouter([
   {
@@ -23,8 +23,8 @@ const router = createBrowserRouter([
         element: <User />,
       },
       {
-        path: "/apache",
-        element: <ApacheBuilding />,
+        path: "/aph1",
+        element: <APH1 />,
       },
       {
         path: "/aph2",
@@ -35,6 +35,10 @@ const router = createBrowserRouter([
         element: <RoomDetail />,
       },
     ],
+  },
+  {
+    path: "/login",
+    element: <LoginAdmin />,
   },
 ]);
 export default router;

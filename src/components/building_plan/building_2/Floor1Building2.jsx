@@ -2,7 +2,9 @@ import React from "react";
 import { Row, Col, Flex } from "antd";
 import "../style/building_plan.scss";
 import { Room } from "../../room/Room";
-export const Floor1Building2 = (props) => {
+export const Floor1Building2 = ({ dataFloor }) => {
+  dataFloor;
+
   return (
     <div className="floor-wrap">
       <Row justify="space-between" className="custom-row">
@@ -19,13 +21,13 @@ export const Floor1Building2 = (props) => {
           YOGA
         </Col>
         <Col span={2}>
-          <Room roomName="101" />
+          <Room roomInfo={dataFloor?.[0]} />
         </Col>
         <Col span={3}>
-          <Room roomName="102" />
+          <Room roomInfo={dataFloor?.[1]} />
         </Col>
         <Col span={3}>
-          <Room roomName="103" />
+          <Room roomInfo={dataFloor?.[2]} />
         </Col>
         <Col span={1}>
           <Row className="sub-row">
@@ -64,19 +66,19 @@ export const Floor1Building2 = (props) => {
       <Row justify="space-between" className="custom-row">
         <Col span={2}></Col>
         <Col span={2}>
-          <Room roomName="117" />
+          <Room roomInfo={dataFloor?.[3]} />
         </Col>
         <Col span={3}>
-          <Room roomName="115" />
+          <Room roomInfo={dataFloor?.[4]} />
         </Col>
         <Col span={3}>
-          <Room roomName="112" />
+          <Room roomInfo={dataFloor?.[5]} />
         </Col>
         <Col span={3}>
-          <Room roomName="110" />
+          <Room roomInfo={dataFloor?.[6]} />
         </Col>
         <Col span={3}>
-          <Room roomName="108" />
+          <Room roomInfo={dataFloor?.[7]} />
         </Col>
         <Col span={2}>
           <Row className="sub-row">
@@ -96,25 +98,25 @@ export const Floor1Building2 = (props) => {
           SẢNH
         </Col>
         <Col span={2}>
-          <Room roomName="116" />
+          <Room roomInfo={dataFloor?.[8]} />
         </Col>
         <Col span={3}>
-          <Room roomName="113" />
+          <Room roomInfo={dataFloor?.[9]} />
         </Col>
         <Col span={3}>
-          <Room roomName="111" />
+          <Room roomInfo={dataFloor?.[10]} />
         </Col>
         <Col span={3}>
-          <Room roomName="109" />
+          <Room roomInfo={dataFloor?.[11]} />
         </Col>
         <Col span={3}>
-          <Room roomName="107" />
+          <Room roomInfo={dataFloor?.[12]} />
         </Col>
         <Col span={2}>
-          <Room roomName="106" />
+          <Room roomInfo={dataFloor?.[13]} />
         </Col>
         <Col span={2}>
-          <Room roomName="105" />
+          <Room roomInfo={dataFloor?.[14]} />
         </Col>
       </Row>
     </div>

@@ -1,0 +1,40 @@
+@import "../../style/myColors";
+.user-page-wrap {
+  padding: 10px 20px;
+  text-align: center;
+  .table-btn-add {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: end;
+    button {
+      margin-bottom: 10px;
+    }
+  }
+  h3 {
+    color: rgb(238, 57, 57);
+    margin-bottom: 20px;
+  }
+  .table-container {
+    width: 80%;
+    margin: 0 auto;
+    overflow-x: auto;
+  }
+}
+.table-btn-view {
+  color: $secondary-color;
+}
+.table-btn-edit {
+  color: $my-blue;
+}
+.table-btn-delete {
+  color: $accent-color;
+}
+@media screen and (max-width: 768px) {
+  .user-page-wrap {
+    padding: 10px 5px;
+  }
+  .table-container {
+    overflow-x: scroll;
+  }
+}

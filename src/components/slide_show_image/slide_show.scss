@@ -45,6 +45,7 @@
     border-radius: 50%;
     padding: 8px;
     opacity: 0.3;
+
     &:hover {
       opacity: 1;
       transition: 0.3s;
@@ -94,12 +95,12 @@
   }
 }
 @media screen and (min-width: 1700px) {
-  .ant-image img {
-    height: 900px !important;
-  }
+  // .slide .ant-image img {
+  //   height: 900px !important;
+  // }
 }
 @media screen and (max-width: 768px) {
-  .ant-image img {
+  .slide .ant-image img {
     height: 200px !important;
   }
   .thumbnail-wrap {

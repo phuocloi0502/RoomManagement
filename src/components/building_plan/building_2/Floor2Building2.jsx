@@ -2,7 +2,9 @@ import React from "react";
 import { Row, Col, Flex } from "antd";
 import "../style/building_plan.scss";
 import { Room } from "../../room/Room";
-export const Floor2Building2 = (props) => {
+export const Floor2Building2 = ({ dataFloor }) => {
+  dataFloor;
+
   return (
     <div className="floor-wrap">
       <Row justify="space-between" className="custom-row">
@@ -10,31 +12,31 @@ export const Floor2Building2 = (props) => {
           CẦU THANG
         </Col>
         <Col span={2}>
-          <Room roomName="201" />
+          <Room roomInfo={dataFloor?.[0]} />
         </Col>
         <Col span={2}>
-          <Room roomName="202" />
+          <Room roomInfo={dataFloor?.[1]} />
         </Col>
         <Col span={2}>
-          <Room roomName="203" />
+          <Room roomInfo={dataFloor?.[2]} />
         </Col>
         <Col span={2}>
-          <Room roomName="205" />
+          <Room roomInfo={dataFloor?.[3]} />
         </Col>
         <Col span={2}>
-          <Room roomName="206" />
+          <Room roomInfo={dataFloor?.[4]} />
         </Col>
         <Col span={2}>
-          <Room roomName="207" />
+          <Room roomInfo={dataFloor?.[5]} />
         </Col>
         <Col span={2}>
-          <Room roomName="208" />
+          <Room roomInfo={dataFloor?.[6]} />
         </Col>
         <Col span={2}>
-          <Room roomName="209" />
+          <Room roomInfo={dataFloor?.[7]} />
         </Col>
         <Col span={2}>
-          <Room roomName="210" />
+          <Room roomInfo={dataFloor?.[8]} />
         </Col>
         <Col span={1}>
           <Row className="sub-row">
@@ -44,7 +46,7 @@ export const Floor2Building2 = (props) => {
         </Col>
         <Col span={2}>
           <Row className="sub-row">
-            <Col className="base-room toilet ">KHO</Col>
+            <Col className="base-room warehouse ">KHO</Col>
             <Col className="base-room staircase">CẦU THANG</Col>
           </Row>
         </Col>
@@ -54,32 +56,32 @@ export const Floor2Building2 = (props) => {
         <Col span={2}>
           <Row gutter={[0, 12]}>
             <Col span={24}>
-              <Room roomName="212" />
+              <Room roomInfo={dataFloor?.[9]} />
             </Col>
             <Col span={24}>
-              <Room roomName="215" />
+              <Room roomInfo={dataFloor?.[10]} />
             </Col>
             <Col span={24}>
-              <Room roomName="217" />
+              <Room roomInfo={dataFloor?.[11]} />
             </Col>
             <Col span={24}>
-              <Room roomName="219" />
+              <Room roomInfo={dataFloor?.[12]} />
             </Col>
           </Row>
         </Col>
         <Col span={2}>
           <Row gutter={[0, 12]}>
             <Col span={24}>
-              <Room roomName="211" />
+              <Room roomInfo={dataFloor?.[13]} />
             </Col>
             <Col span={24}>
-              <Room roomName="213" />
+              <Room roomInfo={dataFloor?.[14]} />
             </Col>
             <Col span={24}>
-              <Room roomName="216" />
+              <Room roomInfo={dataFloor?.[15]} />
             </Col>
             <Col span={24}>
-              <Room roomName="218" />
+              <Room roomInfo={dataFloor?.[16]} />
             </Col>
           </Row>
         </Col>
@@ -87,25 +89,25 @@ export const Floor2Building2 = (props) => {
       <Row justify="space-between" className="custom-row">
         <Col span={2}></Col>
         <Col span={2}>
-          <Room roomName="237" />
+          <Room roomInfo={dataFloor?.[17]} />
         </Col>
         <Col span={3}>
-          <Room roomName="235" />
+          <Room roomInfo={dataFloor?.[18]} />
         </Col>
         <Col span={3}>
-          <Room roomName="232" />
+          <Room roomInfo={dataFloor?.[19]} />
         </Col>
         <Col span={2}>
-          <Room roomName="230" />
+          <Room roomInfo={dataFloor?.[20]} />
         </Col>
         <Col span={2}>
-          <Room roomName="228" />
+          <Room roomInfo={dataFloor?.[21]} />
         </Col>
         <Col span={2}>
-          <Room roomName="226" />
+          <Room roomInfo={dataFloor?.[22]} />
         </Col>
         <Col span={2}>
-          <Room roomName="223" />
+          <Room roomInfo={dataFloor?.[23]} />
         </Col>
         <Col span={2}>
           <Row className="sub-row">
@@ -125,31 +127,31 @@ export const Floor2Building2 = (props) => {
           CẦU THANG
         </Col>
         <Col span={2}>
-          <Room roomName="236" />
+          <Room roomInfo={dataFloor?.[24]} />
         </Col>
         <Col span={3}>
-          <Room roomName="233" />
+          <Room roomInfo={dataFloor?.[25]} />
         </Col>
         <Col span={3}>
-          <Room roomName="231" />
+          <Room roomInfo={dataFloor?.[26]} />
         </Col>
         <Col span={2}>
-          <Room roomName="229" />
+          <Room roomInfo={dataFloor?.[27]} />
         </Col>
         <Col span={2}>
-          <Room roomName="227" />
+          <Room roomInfo={dataFloor?.[28]} />
         </Col>
         <Col span={2}>
-          <Room roomName="225" />
+          <Room roomInfo={dataFloor?.[29]} />
         </Col>
         <Col span={2}>
-          <Room roomName="222" />
+          <Room roomInfo={dataFloor?.[30]} />
         </Col>
         <Col span={2}>
-          <Room roomName="221" />
+          <Room roomInfo={dataFloor?.[31]} />
         </Col>
         <Col span={2}>
-          <Room roomName="220" />
+          <Room roomInfo={dataFloor?.[32]} />
         </Col>
       </Row>
     </div>

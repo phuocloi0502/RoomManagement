@@ -1,16 +1,47 @@
-import React from "react";
-import { Modal, Form, Input, Flex, Button, DatePicker } from "antd";
+import React, { useState } from "react";
+import {
+  Modal,
+  Form,
+  Input,
+  Flex,
+  Button,
+  DatePicker,
+  Spin,
+  message,
+} from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { setOpenReservationModal } from "../../redux/slide/MyState";
+import {
+  setOpenReservationModal,
+  setOpenAddAvatarUserModal,
+} from "../../redux/slide/MyState";
 import "./modal_styles.scss";
-export const ReservationModal = (props) => {
+import { checkIn } from "../../redux/slide/RoomSlide";
+export const ReservationModal = ({ roomId }) => {
   const dispatch = useDispatch();
   const [form] = Form.useForm();
+  const loading = useSelector((state) => state.RoomSlide.loading);
   const openReservationModal = useSelector(
     (state) => state.MyState.openReservationModal
   );
+
   const handleSubmit = (values) => {
-    console.log(values);
+    const formData = {
+      tenCanBo: values.name,
+      ngayDen: values.checkInDate?.format("YYYY-MM-DD"),
+      ngayDi: values.checkOutDate?.format("YYYY-MM-DD"),
+    };
+    try {
+      dispatch(checkIn({ roomId: roomId, body: formData }));
+      message.loading("ĐANG XỬ LÝ THÔNG TIN . . .", 1);
+      setTimeout(() => {
+        form.resetFields();
+        message.success("ĐẶT PHÒNG THÀNH CÔNG");
+        dispatch(setOpenReservationModal(false));
+        dispatch(setOpenAddAvatarUserModal(true));
+      }, 1500);
+    } catch (error) {
+      message.error(error);
+    }
   };
   const handleCloseReservationModal = () => {
     form.resetFields();
@@ -19,6 +50,7 @@ export const ReservationModal = (props) => {
 
   return (
     <div>
+      <Spin spinning={loading} fullscreen />
       <Modal
         okText={"Đặt phòng"}
         onClose={handleCloseReservationModal}
@@ -40,6 +72,7 @@ export const ReservationModal = (props) => {
             }}
             autoComplete="off"
             form={form}
+            onFinish={handleSubmit}
           >
             <Form.Item
               name="name"
@@ -51,36 +84,17 @@ export const ReservationModal = (props) => {
             >
               <Input placeholder="Nhập họ tên vào đây..." />
             </Form.Item>
-            <Form.Item
-              name="birthday"
-              label="Ngày sinh:"
-              // rules={[{ required: true, message: "Vui lòng nhập ngày sinh!" }]}
-            >
-              <DatePicker format={"DD/MM/YYYY"} />
-            </Form.Item>
-            <Form.Item
-              name="nationality"
-              label="Quốc tịch:"
-              // rules={[
-              //   { required: true, message: "Vui lòng nhập quốc tịch" },
 
-              // ]}
-            >
-              <Input placeholder="Nhập quốc tịch vào đây..." />
-            </Form.Item>
-            <Form.Item
-              name="address"
-              label="Địa chỉ:"
-              // rules={[{ required: true, message: "Vui lòng nhập địa chỉ" }]}
-            >
-              <Input placeholder="Nhập địa chỉ vào đây..." />
-            </Form.Item>
             <Form.Item
               name="checkInDate"
               label="Ngày vào ở:"
               rules={[{ required: true, message: "Vui lòng nhập ngày vào ở" }]}
             >
-              <DatePicker status="warning" format={"DD/MM/YYYY"} />
+              <DatePicker
+                status="warning"
+                format={"YYYY/MM/DD"}
+                // onChange={handleCheckInChange}
+              />
             </Form.Item>
             <Form.Item
               name="checkOutDate"
@@ -104,7 +118,11 @@ export const ReservationModal = (props) => {
                 }),
               ]}
             >
-              <DatePicker status="error" format={"DD/MM/YYYY"} />
+              <DatePicker
+                status="error"
+                format={"YYYY/MM/DD"}
+                // onChange={handleCheckOutChange}
+              />
             </Form.Item>
             <Flex justify={"space-around"} className="footer-modal-wrap">
               <Button type="primary" htmlType="submit">

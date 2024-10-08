@@ -28,7 +28,7 @@ export const CheckoutModal = (props) => {
         open={openCheckOutModal}
         footer={null}
       >
-        <h3>Xác nhận trả phòng ?</h3>
+        <h3>XÁC NHẬN TRẢ PHÒNG</h3>
         <Flex justify={"space-around"} className="footer-modal-wrap">
           <Button type="primary" htmlType="submit">
             Trả phòng

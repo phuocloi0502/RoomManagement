@@ -4,7 +4,7 @@ import "./navigate.scss";
 import { FaHome, FaUser } from "react-icons/fa";
 import { CiLogout } from "react-icons/ci";
 import { Drawer, Menu, message } from "antd";
-import { setOpenDrawer } from "../../redux/slide/myState";
+import { setOpenDrawer } from "../../redux/slide/MyState";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 const items = [
@@ -25,32 +25,6 @@ const items = [
   },
 ];
 
-//   {
-//     key: "chat",
-//     icon: (
-//       <Badge count={599} className="custom-badge">
-//         <IoChatbubblesOutline />
-//       </Badge>
-//     ),
-//   },
-//   {
-//     key: "friends",
-
-//     icon: (
-//       <Badge count={599} className="custom-badge">
-//         <FaUserFriends />
-//       </Badge>
-//     ),
-//   },
-//   {
-//     key: "my_page",
-//     icon: <FaRegUserCircle />,
-//   },
-//   {
-//     key: "sign_out",
-//     icon: <CiLogout />,
-//   },
-// ];
 export const Navigate = (props) => {
   //init
   const dispatch = useDispatch();
@@ -59,6 +33,7 @@ export const Navigate = (props) => {
   const defaultSelectedKey = "";
   //handle
   const onClick = (e) => {
+    dispatch(setOpenDrawer(false));
     if (e.key == "sign_out") {
       message.info("Đã đăng xuất !");
     } else {
